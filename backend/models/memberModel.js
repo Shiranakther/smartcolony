@@ -1,0 +1,127 @@
+import mongoose from 'mongoose';
+
+const memberSchema = new mongoose.Schema({
+    fullName:{
+        type:String
+    },
+    nameWithInitials:{
+        type:String
+    },
+    image:{
+        type:String
+    },
+    initialDeposit:{
+        type:Number,
+        default:0
+    },
+    currentBalance:{
+        type:Number,
+       
+    },
+    birthday:{
+        type:Date
+    },
+    nic:{
+        type:String
+    },
+    address:{
+        type:String
+    },
+    membershipType:{
+        type:String,
+        enum:['Member','Secretary','Treasurer','President','Vice President','vice Secretary','vice Treasurer'],
+        default:'Member'
+    },
+    phoneNumber:{
+        type:[String]
+    },
+    email:{
+        type:String
+    },
+    joinedDate:{
+        type:Date,
+        default:Date.now
+    },
+    status:{
+        type:String,
+        enum:['Active','Inactive'],
+        default:'Active'
+    },
+    occupation:{
+        type:String
+    },
+    locationOfWork:{
+        type:String
+    },
+    retirementStatus:{
+        type:Boolean,
+        default:false
+    },
+    meritalStatus:{
+        type:String,
+        enum:['Single','Married','Divorced','Widowed'],
+        default:'Single'
+    },
+    spouseName:{
+        type:String
+    },
+    spouseAlive:{
+        type:Boolean,
+        default:true
+    },
+    spouseOccupation:{
+        type:String
+    },
+    spouseLocationOfWork:{
+        type:String
+    },
+    headOfHouseholdFatherAlive:{
+        type:Boolean,
+        default:true
+    },
+    headOfHouseholdFatherName:{
+        type:String
+    },
+     headOfHouseholdMotherAlive:{
+        type:Boolean,
+        default:true
+    },
+    headOfHouseholdMotherName:{
+        type:String
+    },
+    headOfHouseholdSpouseFatherAlive:{
+        type:Boolean,
+        default:true
+    },
+    headOfHouseholdSpouseFatherName:{
+        type:String
+    },
+    headOfHouseholdSpouseMotherAlive:{
+        type:Boolean,
+        default:true
+    },
+    headOfHouseholdSpouseMotherName:{
+        type:String
+    },
+    familyMembers:{
+        type:[{
+            name:String,
+            relationship:String,
+            birthday:Date,
+            age:Number,
+            maritalStatus: {
+            type: String,
+            enum: ['Single', 'Married', 'Divorced', 'Widowed']
+            },
+            occupation:String,
+        }],
+        default:[]
+    },
+    other:{
+        type:String
+    }
+
+
+
+});
+export default mongoose.model('Member', memberSchema);
