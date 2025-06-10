@@ -2,12 +2,18 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './connection/connectDB.js';
 
+//import routes
+import userRoutes from './routes/userRoutes.js';
+import membersRoutes from './routes/membersRoutes.js';
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 app.use(express.json());
 
-
+//routes
+app.use('/api/auth',userRoutes);
+app.use('/api/member',membersRoutes);
 
 //connect to the database
 app.listen(PORT,()=>{
