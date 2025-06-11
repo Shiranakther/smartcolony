@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 const memberSchema = new mongoose.Schema({
+    memberId:{
+        type:String,
+        required:true,
+        unique:true
+    },
     fullName:{
         type:String
     },
@@ -117,11 +122,17 @@ const memberSchema = new mongoose.Schema({
         }],
         default:[]
     },
+    loanTakenStatus:{
+        type:Boolean,
+        default:false
+    },
+    balancedAmount:{
+        type:Number,    
+        default:0
+    },
     other:{
         type:String
-    }
-
-
-
+    },
+    
 });
 export default mongoose.model('Member', memberSchema);

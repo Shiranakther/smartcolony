@@ -9,19 +9,7 @@ const totalFundsSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    totalDeposits: {
-        type: Number,
-        default: 0
-    },
-    totalWithdrawals: {
-        type: Number,
-        default: 0
-    },
-    totalLoans: {
-        type: Number,
-        default: 0
-    },
-    totalLoanPayments: {
+    totalLoanAmounts: {
         type: Number,
         default: 0
     },
