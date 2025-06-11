@@ -1,6 +1,5 @@
 import Member from '../models/memberModel.js';
 
-
 const viewMembers = async (req, res) => {
     try {
         const members = await Member.find(); // fetch all members from DB

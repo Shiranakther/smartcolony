@@ -1,0 +1,1 @@
+import membersFunds from '../models/funds/membersFundsModel.js';
